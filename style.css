@@ -1,0 +1,17 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.choice {
+    display: flex;
+    justify-content: space-between;
+    margin: 50px 500px;
+}
+
+.result {
+    margin: 50px 500px;
+}
