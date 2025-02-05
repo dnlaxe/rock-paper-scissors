@@ -54,10 +54,13 @@ img {
     display: flex;
     justify-content: space-between;
     padding: 0;
+    border-style: none;
 }
 
 div {
-    margin: 20px 25%;
+    margin: 10px 20%;
+    border-style: solid;
+    padding: 20px;
 }
 
 .humanScore, .computerScore {
@@ -70,6 +73,6 @@ div {
 }
 
 .header {
-    margin: 50px 0;
-    font-size: 110px;
+    margin-top: 20px;
+    font-size: 120px;
 }
