@@ -1,19 +1,14 @@
-const blurb = document.createElement('span');
+const outcome = document.createElement('span');
+const human = document.createElement('span');
+const computer = document.createElement('span');
+
 const result = document.querySelector('.result');
+const humanPoints = document.querySelector('.humanScore');
+const computerPoints = document.querySelector('.computerScore');
 
 let humanScore = 0;
 let computerScore = 0;
 let numberOfGames = 0;
-
-function getHumanChoice() {
-    while (true) {
-        let choice = prompt("Rock, paper, scissors?").toLowerCase();
-        if (choice === "rock" || choice === "paper" || choice === "scissors") {
-            return choice;
-        }
-        else alert("Invalid choice!");
-    }
-}
 
 function getComputerChoice() {
     const randomNumber = Math.floor(Math.random() * 3);
@@ -27,22 +22,15 @@ function getComputerChoice() {
         const humanSelection = humanChoice;
         const computerSelection = getComputerChoice();
         
-        alert(playRound(humanSelection, computerSelection));
-        alert(`Computer: ${computerScore}\nYou: ${humanScore}`)
+        result.textContent = playRound(humanSelection, computerSelection);
+        humanPoints.textContent = `Human: ${humanScore}`;
+        computerPoints.textContent = `Computer: ${computerScore}`;
 
-    if (humanScore === computerScore) {alert(`Final score: ${computerScore}: ${humanScore}\nA bore draw.`)};
-    if (humanScore > computerScore) {alert(`Final score: ${humanScore}: ${computerScore}\nYou are victorious!`)};
-    if (humanScore < computerScore) {alert(`Final score: ${computerScore}: ${humanScore}\nAI wins and you lose.`)};
-
-    blurb.textContent = 'TADAAAA!';
-    result.appendChild(blurb);
-
+        if (computerScore === 5) {alert('Game over! You lose!'); location.reload()};
+        if (humanScore === 5) {alert('Game over! You win!'); location.reload()};
   }
 
-
-
   function playRound(humanChoice, computerChoice) {
-    numberOfGames ++;
     alert(`You chose ${humanChoice} and the computer chose ${computerChoice}.`)
     if (humanChoice === computerChoice) {return "It's a draw!"};
     if (
@@ -51,14 +39,13 @@ function getComputerChoice() {
         (humanChoice === "paper" && computerChoice === "rock")
     ) {
         humanScore++;
-        return "You win!";
+        return 'You win!';
+        
     } else {
         computerScore++;
-        return "Computer wins!"
-    }
+        return 'You lose!';        
+    } 
   }
-
-
 
   // buttons is a node list. It looks and acts much like an array.
 const buttons = document.querySelectorAll("button");
