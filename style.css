@@ -45,7 +45,6 @@ img {
 }
 
 .choice {
-
     display: flex;
     justify-content: space-between;
 }
@@ -60,7 +59,7 @@ img {
 div {
     margin: 10px 20%;
     border-style: solid;
-    padding: 20px;
+    padding: 20px 20px 45px 20px;
 }
 
 .humanScore, .computerScore {
